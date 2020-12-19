@@ -1,0 +1,4 @@
+(Reserved) Fix Subscriber Edit Bug
+
+When we set Subscriber as recent donor on the Subscriber Edit page, that Boolean is not set in the Subscriber database.  
+Check the Controller and the Edit View to find a fix for this bug.

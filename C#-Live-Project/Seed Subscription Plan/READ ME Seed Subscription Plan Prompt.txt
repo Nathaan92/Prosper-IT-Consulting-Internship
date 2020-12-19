@@ -1,0 +1,25 @@
+Seed Subscription Plans
+
+Recent students created a new Model called SubscriptionPlans.  
+This Model represents a payment plan that a User can subscribe to to become a Subscriber.  
+Create a new seed method in the Startup.cs file and populate it with 3 Subscriber Plans:
+
+Subscription Level | PricePerYear | NumberOfShows
+-------------------------------
+1. "Platinum" | $500 | 100
+2. "Gold" | $300 | 10
+3. "Silver" | $200 | 5
+
+Additionally, change the seeded Subscriber User.  
+Currently, a new SubscriptionPlan is created when the Subscriber User is created.  
+Instead of creating a brand new SubscriptionPlan, the Subscriber should be assigned an already existing plan.
+
+There is a dropdown and an Update Subscription button at the bottom of the Subscriber Dashboard page.  
+This button is meant to update the Subscription Level of the Signed in Subscriber.  
+There was a SubscriptionPlan object created to represent the three different tiers that we have: Platinum, Gold, Silver.
+
+Make the Update Subscription button disabled unless the selected plan in the dropdown doesn't match their current Plan.  
+In other words, the Update Subscription button should visually change and be clickable if the Subscriber tries to change 
+their plan.
+
+Clicking the Update Subscription button should update the Subscriber to that SubscriptionPlan.

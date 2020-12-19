@@ -1,0 +1,39 @@
+
+            <div class="accountbox">
+              <h2 class="subback2">Manage Your Subscription</h2>
+              @* C# form passing selected Subscription Plan option to dashboard controller method *@
+              @using (Html.BeginForm("ChangeSubscriptionPlan", "Dashboard", FormMethod.Post)) {
+                <div>
+                  <h2>Current Subscription Level: @Html.DisplayFor(models => models.SubscriberPerson.SubscriptionPlan.SubscriptionLevel)</h2>
+                  <p><button type="button" class="subsave">Renew Subscription</button></p>
+                <div>
+                  <p>
+                    <label for="sublevel">Subscription Level</label>
+                    @*onchange calls JS function to disable submit button if the subscription plan option selected is the same as the users current plan*@
+                    <select id="sublevel" name="sublevel" onchange="subsubmitdisable()">
+                      <option value="Platinum">Platinum &nbsp;&nbsp;  /  &nbsp;&nbsp;   all shows &nbsp;&nbsp;    /   &nbsp;&nbsp;  $500/yr</option>
+                      <option value="Gold">Gold   &nbsp;&nbsp;  /   &nbsp;&nbsp;  any ten shows &nbsp;&nbsp;    /  &nbsp;&nbsp;   $300/yr</option>
+                      <option value="Silver">Silver &nbsp;&nbsp;    /    &nbsp;&nbsp; any five shows  &nbsp;&nbsp;  /  &nbsp;&nbsp;   $200/yr</option>
+                    </select>
+                  </p>
+                  <button type="submit" class="subsave" id="subsave">Update Subscription</button>
+                  <script type="text/javascript">
+                    //assignment of the subscribers current subscripton plan to a golbal variable 
+                    var currentsubscription = '@Model.SubscriberPerson.SubscriptionPlan.SubscriptionLevel';
+                    //assignment of the selected option value within the 'sublevel' select tags to a global variable
+                    var sublevel = document.getElementById("sublevel");
+                    //assigment of the 'subsave' button to a global variable
+                    var subsave = document.getElementById("subsave");
+                    // calls the function on page load. Ensures at page load if preselected option matches subscribers plan that button will be disabled
+                    subsubmitdisable();
+                    //disables and changes apperance of submit button if the subscription plan option selected is the same as the users current plan
+                    function subsubmitdisable() {
+                      subsave.disabled = (currentsubscription == sublevel.value);
+                  }
+                  </script>
+                </div>
+              }
+              <form action="/action_page.php">
+                <label for="upshows">Upcoming Shows</label>
+                <select id="upshows" name="upshows">
+                  <option value="mechant1">Merchant of Venice  &nbsp;&nbsp;&nbsp; June 24th, 7pm</option>

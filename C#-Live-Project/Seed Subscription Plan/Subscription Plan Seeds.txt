@@ -1,0 +1,71 @@
+using Microsoft.Ajax.Utilities;
+using System.Web.Caching;
+using System.Data.Entity;
+using TheatreCMS.Areas.Subscribers.Models;
+[assembly: OwinStartupAttribute(typeof(TheatreCMS.Startup))]
+namespace TheatreCMS
+        public void Configuration(IAppBuilder app)
+        {
+            ConfigureAuth(app);
+            SeedSubscriptionPlans();
+            createRolesandUsers();
+            SeedCastPhotos();
+            SeedCastMembers();
+            SeedDisplayLinks();
+            SeedDisplayInfo();
+            
+            //Seed10Users(); //add 10 members to the user list. slows application load, use as needed.
+        }
+                role.Name = "Subscriber";
+                roleManager.Create(role);
+            }
+            //Seeding subscriber with subscripiton plan "Gold"
+            var subscriptionplan = context.SubscriptionPlan.FirstOrDefault(p => p.SubscriptionLevel == "Gold");
+            var subUser = new ApplicationUser()
+            {
+                UserName = "subscriberTest",
+                    HasRenewed = false,
+                    Newsletter = true,
+                    RecentDonor = false,
+                    SubscriptionPlan = subscriptionplan,
+                    //Generating SubscriberPerson data for Subscribers so can edit/delete from UserList page
+                }
+            };
+                {
+                    var result1 = userManager.AddToRole(user.Id, "User");
+                }
+            }
+        }
+        //Three Subscripiton Plans available and associated attribute values
+        private void SeedSubscriptionPlans()
+        {
+            var subscriptions = new List<SubscriptionPlan>
+            {
+                new SubscriptionPlan
+                {
+                    SubscriptionLevel = "Platinum",
+                    PricePerYear = 500,
+                    NumberOfShows = 100,
+                },
+            
+                new SubscriptionPlan
+                {
+                    SubscriptionLevel = "Gold",
+                    PricePerYear = 300,
+                    NumberOfShows = 10,
+                },
+            
+                new SubscriptionPlan
+                {
+                    SubscriptionLevel = "Silver",
+                    PricePerYear = 200,
+                    NumberOfShows = 5,
+                }
+            };
+            //Saving Subscripition Plans to model and assigment of values to corresponding attributes
+            subscriptions.ForEach(subscription => context.SubscriptionPlan.AddOrUpdate(p => new { p.SubscriptionLevel, p.PricePerYear, p.NumberOfShows },subscription));
+            context.SaveChanges();
+        }
+        // I created a new method to seed the castmember images. I placed it before seedCastMembers() in order for those objects to reference the Photo database table
+        private void SeedCastPhotos()
+        {

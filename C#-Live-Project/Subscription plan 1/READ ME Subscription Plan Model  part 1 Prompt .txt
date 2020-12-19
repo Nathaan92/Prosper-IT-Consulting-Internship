@@ -1,0 +1,8 @@
+Subscription Plan Model | part 1
+
+Subscribers are Users that have subscribed to one of the subscription plans (Silver, Gold, Platinum).  
+Create a new SubscriptionPlan model with properties SubscriptionLevel (primary key of type string), PricePerYear, 
+NumberOfShows.
+The NumberOfShows field determines how many shows the Subscriber can attend without needing to purchase tickets.
+Add a navigation field to the Subscriber model called SubscriptionPlan of type SubscriptionPlan.  
+Also add a navigation property to the SubscriptionPlan of type List<Subscriber> called Subscribers.

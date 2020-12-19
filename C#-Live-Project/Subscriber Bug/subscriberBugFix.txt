@@ -1,0 +1,23 @@
+    <div class="form-group font-weight-bolder text-center">
+      @Html.LabelFor(model => model.CurrentSubscriber, htmlAttributes: new { @class = "control-label col-md-3" })
+      @Html.EditorFor(model => model.CurrentSubscriber)
+      @Html.ValidationMessageFor(model => model.CurrentSubscriber, "", new { @class = "text-danger" })
+      <div class="col-md-10">
+      </div>
+    </div>
+
+        <div class="form-group font-weight-bold text-center">
+          @Html.LabelFor(model => model.HasRenewed, htmlAttributes: new { @class = "control-label col-md-3" })
+          @Html.EditorFor(model => model.HasRenewed)
+          @Html.ValidationMessageFor(model => model.HasRenewed, "", new { @class = "text-danger" })
+          <div class="col-md-10">
+          </div>
+        </div>
+
+        <div class="form-group font-weight-bold text-center">
+          @Html.LabelFor(model => model.Newsletter, htmlAttributes: new { @class = "control-label col-md-3" })
+          @Html.EditorFor(model => model.Newsletter)
+          @Html.ValidationMessageFor(model => model.Newsletter, "", new { @class = "text-danger" })
+          <div class="col-md-10">
+          </div>
+        </div>

@@ -1,0 +1,24 @@
+
+@model IEnumerable<TheatreCMS.Models.ProductionPhotos>
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Title = "Production Photos";
+}
+<h2 class="m-3">Index</h2>
+<div class="m-3 d-flex justify-content-center">
+  <h2>Production Photos</h2>
+  <a href="@Url.Action("Create")"  class="fa-stack fa-1x createNewIcon">
+      <i class="fa fa-circle fa-stack-1x productionPhotoCreateNewIconBackground fa-inverse"></i>
+      <i class="fa fa-plus-circle fa-stack-1x productionPhotoCreateNewIconForground"></i>
+  </a>
+</div>
+  
+<div class="prodphoto-bar m-3">
+    <label>Filter by Production</label>
+    @Html.DropDownList("ProductionList", (IEnumerable<SelectListItem>)ViewData["ProductionList"], "All", new { @class = "col-5 col-md-3 prodphoto-filter" })
+</div>
+<p class="m-3">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<h4 class="text-center py-3" id="prodphoto-null-msg"></h4>
+<div class="prodphoto-content my-3 container">

@@ -1,0 +1,8 @@
+Subscription Plan Model | part 2
+
+To test out the new SubscriptionPlan Model, on the Subscriber Dashboard, change the "Current Subscription Level: Silver" 
+text to dynamically change based on the Subscriber's Subscription Level.  
+Use Razor to make the Subscription Level text under the "Manage Your Subscription" area dynamic.
+
+The Subscriber User that is being created in the createRolesandUsers seed method should also be initialized with a 
+SubscriptionPlan object ("Gold").

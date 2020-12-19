@@ -1,0 +1,12 @@
+		
+                    CurrentSubscriber = true,
+                    HasRenewed = false,
+                    Newsletter = true,
+                    RecentDonor = false,
+                    SubscriptionPlan = new Areas.Subscribers.Models.SubscriptionPlan()
+                    {
+                        SubscriptionLevel = "Gold",
+                    }
+                    //Generating SubscriberPerson data for Subscribers so can edit/delete from UserList page
+                }
+            };

@@ -1,0 +1,20 @@
+Before:
+
+		
+                <h2 class="subback2">Manage Your Subscription</h2>
+                <form action="/action_page.php">
+                    <div>
+                        <h2>Current Subscription Level: Silver</h2>
+                        <p><button type="button" class="subsave">Renew Subscription</button></p>
+                    </div>
+                    <div>
+
+After:
+
+                <h2 class="subback2">Manage Your Subscription</h2>
+                <form action="/action_page.php">
+                    <div>
+                      <h2>Current Subscription Level: @Html.DisplayFor(models => models.SubscriberPerson.SubscriptionPlan.SubscriptionLevel)</h2>
+                        <p><button type="button" class="subsave">Renew Subscription</button></p>
+                    </div>
+                    <div>

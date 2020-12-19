@@ -1,0 +1,11 @@
+CRUD Pages & Functionality for Subscription Plans
+
+There are currently no way to change or add Subscription Plans without going through code.  
+Scaffold a Subscription Plan Controller and View pages (Index, Create, Details, Update, Delete).  
+Visual Studio should automatically create the CRUD methods but there is some more logic that should be 
+incorporated into the Create and Edit method.  Before being able to Create or Edit a new Subscription Plan, 
+check all Subscription Plans in the database to see if that Subscription Plan has same SubscriptionLevel, 
+PricePerYear, or NumberOfShows as any of the other Subscription Plans.  If so, use a model state error and present 
+error text to the user ("There is already a plan that offers a price/year of [[[PricePerYear]]]", 
+"There is already a Plan that offers [[[NumberOfShows]]] free shows", "There is already a plan with that Subscription Level
+ [[[SubscriptionLevel]]]").
