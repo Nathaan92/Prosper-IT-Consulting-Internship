@@ -3,4 +3,4 @@
 We want to make the 'Create New' link into a clickable Font Awesome icon.  
 Change the page title from 'Index' to 'Production Photos' and place the icon to the right of the page title.  
 Use Font Awesome's fa-plus-circle icon for the button.  
-The circle portion of the icon should be red and the plus portion of the icon should be whi
+The circle portion of the icon should be red and the plus portion of the icon should be white
